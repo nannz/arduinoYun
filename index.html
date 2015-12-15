@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yun</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+//        $.ajax({
+//            url: "http://10.208.7.10/arduino/analog/2",
+//            dataType: 'jsonp'
+//        }).done(function(data) {
+//            $( 'body' ).append(data);
+//        });
+
+setInterval(function(){
+    myFunction();
+}, 3000);
+
+        function myFunction() {
+            //$( '#data' ).append("<p>Test</p>");
+            $.ajax({
+                url: "http://10.208.7.10/arduino/analog/2",
+                dataType: 'jsonp'
+            }).done(function(data) {
+                console.log("data", data);
+                $( 'body' ).empty().append(data);
+            });
+            //alert("Hello");
+        }
+
+
+    </script>
+</head>
+
+<body>
+<p id="data">
+</p>
+</body>
+</html>
